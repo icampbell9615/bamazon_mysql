@@ -1,2 +1,2 @@
-<img src="img/bamazon.jpg" width="100">
+<img src="img/bamazon.jpg">
 
