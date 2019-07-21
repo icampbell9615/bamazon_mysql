@@ -6,13 +6,13 @@ var connection = mysql.createConnection({
 	host: "localhost",
 	port: "3306",
 	user: "root",
-	password: "",
+	password: "dt194612",
 	database: "bamazon_db"
 });
 
 connection.query("SELECT * FROM products", function (err, res) {
 	if (err) throw err;
-	console.log("Item    Product \t\tDepartment \tPrice\t Stock");
+	console.log("Item  Product \t\tDepartment \tPrice\t Stock");
 	console.log("------------------------------------------------------------------");
 	for (var i = 0; i < res.length; i++) {
 		console.log(res[i].ItemID + " \t" + res[i].ProductName + "\t" + res[i].DepartmentName + "\t" + res[i].Price + " \t " + res[i].StockQuantity);
@@ -22,12 +22,12 @@ connection.query("SELECT * FROM products", function (err, res) {
 	inquirer.prompt([{
 		name: "product",
 		type: "input",
-		message: "What is the ID of the product that works best for you? [Changed your mind? Press Y]"
+		message: "What is the ID of the product that you picked? [Changed your mind? Press Y]"
 	},
 	{
 		name: "qty",
 		type: "input",
-		message: "You will claim your write-off later, so how many of this product did you have in mind?"
+		message: "How many were you thinking of buying?"
 
 	}]).then(function (productObj) {
 		if (productObj.product.toUpperCase() == "Y") {
